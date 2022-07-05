@@ -1,49 +1,83 @@
-import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import './NavMenu.css';
+﻿import React, { useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
-export class NavMenu extends Component {
-  static displayName = NavMenu.name;
 
-  constructor (props) {
-    super(props);
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      collapsed: true
+const NavMenu = () => {
+
+    const [language, setLanguage] = useState('fr');
+
+    const handleChange = (event) => {
+        setLanguage(event.target.value);
+
+
     };
-  }
 
-  toggleNavbar () {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
-
-  render () {
+    const classes = useStyles();
     return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-          <Container>
-            <NavbarBrand tag={Link} to="/">multi_language</NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              <ul className="navbar-nav flex-grow">
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-                </NavItem>
-              </ul>
-            </Collapse>
-          </Container>
-        </Navbar>
-      </header>
+        <div className={classes.root}>
+            <div className={classes.menu}>
+            <span className={classes.span}>Home</span>
+            <span className={classes.span}>About</span>
+            <span className={classes.span}>Contact</span>
+            </div>
+
+            <div className={classes.select}>
+                <FormControl className={classes.formControl}>
+            
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={language}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value={'en'}>English</MenuItem>
+                        <MenuItem value={'fr'}>Francais</MenuItem>
+                        <MenuItem value={'he'}>עברית</MenuItem>
+                    </Select>
+                </FormControl>
+            </div>
+        </div>
     );
-  }
+
 }
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent:'space-between',
+        padding:'0 10px',
+        width: '100%',
+        background: '#ADADAD',
+        height: 50,
+        marginTop: 20,
+        borderRadius:10
+      
+    },
+    menu: {
+
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 10px',
+
+    },
+    span: {
+        color: 'white',
+        padding:'0 10px'
+
+    },
+    select: {
+        padding: '0 10px',
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+
+}));
+export default NavMenu
