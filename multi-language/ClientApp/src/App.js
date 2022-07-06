@@ -5,6 +5,9 @@ import { makeStyles, ThemeProvider, createTheme } from '@material-ui/core/';
 import { englishLang } from './languages/english'
 import { frenchLang } from './languages/french'
 import {  hebrewLang } from './languages/hebrew'
+import { useState } from 'react';
+import About from './components/About';
+import NavMenu from './components/NavMenu';
 
 
 const useGlobalStyles = makeStyles((theme) => ({
@@ -41,12 +44,18 @@ function MyThemeProvider({ children }) {
 
 const App = () => {
 
-   
+    const [language, setLanguage] = useState('fr');
     return (
         <MyThemeProvider>
-            <Route exact path='/' component={() => <Home lang={englishLang.home}  />}  />
-            {/*<Route  path='/en' component={() => <Home lang={englishLang.home} />} />*/}
-            {/*<Route  path='/he' component={() => <Home lang={hebrewLang.home} />} />*/}
+            <NavMenu language={language} setLanguage={setLanguage}/>
+            <Route exact path={["/fr", "/"]} component={() => <Home lang={frenchLang.home}  />}  />
+            <Route path='/en' component={() => <Home lang={englishLang.home} />} />
+            <Route path='/he' component={() => <Home lang={hebrewLang.home} />} />
+
+
+            <Route exact path={["/about/fr", "/about"]} component={() => <About lang={frenchLang.about} />} />
+            <Route path='/about/en' component={() => <About lang={englishLang.about} />} />
+            <Route path='/about/he' component={() => <About lang={hebrewLang.about} />} />
         </MyThemeProvider>
     );
 

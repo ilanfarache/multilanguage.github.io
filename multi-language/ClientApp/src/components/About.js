@@ -1,14 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import NavMenu from './NavMenu';
-import SectionOne from './SectionOne';
-import SectionTwo from './SectionTwo';
-import SectionThree from './SectionThree';
+
 import { useState } from 'react';
 
 
 
-const Home = ({ lang }) => {
+const About = ({ lang }) => {
 
   
     
@@ -16,10 +14,8 @@ const Home = ({ lang }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-        {/*    <NavMenu />*/}
-            <SectionOne lang={lang.sectionOne} />
-            <SectionTwo lang={lang.sectionTwo}/>
-            <SectionThree lang={lang.sectionThree}/>
+         {/*   <NavMenu />*/}
+            <span className={classes.title}>{lang.title}</span>
             
          
         </div>
@@ -31,9 +27,17 @@ const useStyles = makeStyles((theme) => ({
     root: {
 
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection:'column',
+        alignItems:'center'
 
     },
+    title: {
+
+        color: 'white',
+        textTransform: 'uppercase',
+        fontSize:40
+
+    }
 
 }));
-export default Home
+export default About

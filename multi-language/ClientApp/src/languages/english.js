@@ -31,5 +31,11 @@ export const englishLang =
 
         },
 
-  }
+    },
+
+    "about": {
+
+        "title":"About"
+
+    }
 }

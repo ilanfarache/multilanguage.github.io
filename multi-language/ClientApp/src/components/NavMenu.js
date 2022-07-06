@@ -1,38 +1,68 @@
-﻿import React, { useState} from 'react';
+﻿import React, { useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import { useHistory, useLocation } from "react-router-dom";
+
+const NavMenu = ({ language,setLanguage}) => {
+
+   
+
+    let history = useHistory();
 
 
-
-const NavMenu = () => {
-
-    const [language, setLanguage] = useState('fr');
-
-    const handleChange = (event) => {
+    const handleChangeLang = (event) => {
         setLanguage(event.target.value);
+
+        //console.log("path", path);
+        history.push(`${event.target.value}`);
+       
+
+    };
+
+    const hangleChangePage = (event) => {
+       
+        event.preventDefault();
+
+
+        let id = event.target.id;
+        console.log("id",id);
+        if (id == "home") {
+
+            history.push(`/${language}`);
+        }
+        else if (id == "about") {
+
+            history.push(`/about/${language}`);
+        }
+        else if (id == "contact") {
+
+            /* history.push(`/${event.target.value}`);*/
+            console.log("contact");
+        }
 
 
     };
+
 
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <div className={classes.menu}>
-            <span className={classes.span}>Home</span>
-            <span className={classes.span}>About</span>
-            <span className={classes.span}>Contact</span>
+                <span onClick={hangleChangePage} id="home" className={classes.span}>Home</span>
+                <span onClick={hangleChangePage} id="about" className={classes.span}>About</span>
+                <span onClick={hangleChangePage} id="contact" className={classes.span}>Contact</span>
             </div>
 
             <div className={classes.select}>
                 <FormControl className={classes.formControl}>
-            
+
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={language}
-                        onChange={handleChange}
+                        onChange={handleChangeLang}
                     >
                         <MenuItem value={'en'}>English</MenuItem>
                         <MenuItem value={'fr'}>Francais</MenuItem>
@@ -50,14 +80,15 @@ const useStyles = makeStyles((theme) => ({
 
         display: 'flex',
         alignItems: 'center',
-        justifyContent:'space-between',
-        padding:'0 10px',
+        justifyContent: 'space-between',
+        padding: '0 10px',
         width: '100%',
         background: '#ADADAD',
         height: 50,
         marginTop: 20,
-        borderRadius:10
-      
+        marginBottom: 60,
+        borderRadius: 10
+
     },
     menu: {
 
@@ -68,7 +99,8 @@ const useStyles = makeStyles((theme) => ({
     },
     span: {
         color: 'white',
-        padding:'0 10px'
+        padding: '0 10px',
+        cursor:'pointer'
 
     },
     select: {

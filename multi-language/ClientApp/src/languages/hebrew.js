@@ -31,5 +31,10 @@ export const hebrewLang =
 
         },
 
-  }
+    },
+    "about": {
+
+        "title": "על אודות"
+
+    }
 }
