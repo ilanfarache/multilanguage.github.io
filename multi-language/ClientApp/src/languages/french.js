@@ -4,6 +4,14 @@
 
 export const frenchLang =
 {
+
+    "NavBar": {
+
+        "home": "Accueil",
+        "about": 'A propos'
+
+
+    },
   "home": {
 
     "sectionOne":
@@ -33,7 +41,11 @@ export const frenchLang =
     },
       "about": {
 
-        "title": "A propos"
+          "titlePage": "A propos",
+
+          "title":"Qu'est-ce que le streaming ?",
+
+          "text":"Le streaming est utilisé pour visionner ou écouter des contenus en ligne.Ce protocole permet la lecture instantanée de vidéos ou de musiques, directement dans le navigateur web.Le streaming s’est largement développé sur Internet au début des années 2000, avec le lancement de grandes plateformes de streaming aujourd’hui très connues telles que YouTube, Dailymotion, ou encore Deezer.Le streaming permet ainsi simplement de regarder des vidéos ou d'écouter de la musique sur Internet, sans avoir à télécharger de fichier. Il est devenu un protocole incontournable. Ainsi, en 2018, on estime que le streaming représentait près de 58 % de la bande passante mondiale."
 
     }
 }

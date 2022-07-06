@@ -47,7 +47,7 @@ const App = () => {
     const [language, setLanguage] = useState('fr');
     return (
         <MyThemeProvider>
-            <NavMenu language={language} setLanguage={setLanguage}/>
+            <NavMenu language={language} setLanguage={setLanguage} french={frenchLang.NavBar} english={englishLang.NavBar} hebrew={hebrewLang.NavBar}/>
             <Route exact path={["/fr", "/"]} component={() => <Home lang={frenchLang.home}  />}  />
             <Route path='/en' component={() => <Home lang={englishLang.home} />} />
             <Route path='/he' component={() => <Home lang={hebrewLang.home} />} />

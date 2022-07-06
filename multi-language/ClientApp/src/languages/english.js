@@ -4,6 +4,14 @@
 
 export const englishLang =
 {
+
+    "NavBar": {
+
+        "home": "Home",
+        "about":'About'
+
+
+    },
   "home": {
 
     "sectionOne":
@@ -35,7 +43,10 @@ export const englishLang =
 
     "about": {
 
-        "title":"About"
+        "titlePage": "About",
+        "title": "What is Streaming?",
+
+        "text": "Streaming is used to view or listen to online content. This protocol allows instant playback of videos or music, directly in the web browser. Streaming was widely developed on the Internet in the early 2000s, with the launch of major streaming platforms that are very well known today such as YouTube, Dailymotion, or even Deezer. Streaming thus makes it easy to watch videos or listen to music on the Internet, without having to download a file. It has become an essential protocol. Thus, in 2018, it is estimated that streaming accounted for nearly 58% of global bandwidth."
 
     }
 }

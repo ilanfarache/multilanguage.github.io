@@ -12,8 +12,8 @@ const SectionOne = ( {lang}) => {
 
             <div className={classes.container}>
 
-                <span>{lang.title}</span>
-                <span>{lang.text}</span>
+                <span className={classes.title}>{lang.title}</span>
+                <span className={classes.text}>{lang.text}</span>
             </div>
 
 
@@ -51,7 +51,21 @@ const useStyles = makeStyles((theme) => ({
         color:'black'
 
 
-    }
+    },
+
+    title: {
+        fontSize: 25,
+        fontWeight: 600,
+        marginBottom:20
+           
+    },
+    text: {
+        fontSize: 18,
+        textAlign: 'justify',
+        lineHeight:1.9
+     
+
+    },
 
 }));
 export default SectionOne

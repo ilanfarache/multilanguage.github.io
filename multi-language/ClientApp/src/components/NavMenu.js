@@ -1,21 +1,35 @@
-﻿import React, { useState, useContext} from 'react';
+﻿import React, { useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { useHistory, useLocation } from "react-router-dom";
 
-const NavMenu = ({ language,setLanguage}) => {
 
-   
+const NavMenu = ({ language, setLanguage, french, english , hebrew}) => {
+
+
+    const [lang, setLang] = useState(french);
 
     let history = useHistory();
+   
+
 
 
     const handleChangeLang = (event) => {
         setLanguage(event.target.value);
 
-        //console.log("path", path);
+        if (event.target.value == "fr") {
+
+            setLang(french)
+
+        } else if (event.target.value == "en") {
+            setLang(english)
+
+        }
+        else if (event.target.value == "he") {
+            setLang(hebrew)
+        }
         history.push(`${event.target.value}`);
        
 
@@ -50,9 +64,9 @@ const NavMenu = ({ language,setLanguage}) => {
     return (
         <div className={classes.root}>
             <div className={classes.menu}>
-                <span onClick={hangleChangePage} id="home" className={classes.span}>Home</span>
-                <span onClick={hangleChangePage} id="about" className={classes.span}>About</span>
-                <span onClick={hangleChangePage} id="contact" className={classes.span}>Contact</span>
+                <span onClick={hangleChangePage} id="home" className={classes.span}>{lang.home}</span>
+                <span onClick={hangleChangePage} id="about" className={classes.span}>{lang.about}</span>
+             {/*   <span onClick={hangleChangePage} id="contact" className={classes.span}>Contact</span>*/}
             </div>
 
             <div className={classes.select}>

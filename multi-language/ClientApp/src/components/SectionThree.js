@@ -11,8 +11,8 @@ const SectionThree = ({lang}) => {
         <div className={classes.root}>
             <div className={classes.container}>
 
-                <span>{lang.title}</span>
-                <span>{lang.text}</span>
+                <span className={classes.title}>{lang.title}</span>
+                <span className={classes.text}>{lang.text}</span>
             </div>
 
         </div>
@@ -38,18 +38,32 @@ const useStyles = makeStyles((theme) => ({
     container: {
 
         display: 'flex',
-        flexDirection:'column',
+        flexDirection: "column",
+        alignItems: 'center',
         padding: '25px 20px',
-       
-        backgroundImage: 'linear-gradient(135deg, #FFF720 10%, #3CD500 100%)',
+        backgroundImage: 'linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%);',
         height: "80vh",
         width: "30%",
         borderRadius: 40,
         border: 'solid 4px white',
-        color: 'white'
+        color: 'black'
 
 
-    }
+    },
+
+    title: {
+        fontSize: 25,
+        fontWeight: 600,
+        marginBottom: 20
+
+    },
+    text: {
+        fontSize: 18,
+        textAlign: 'justify',
+        lineHeight: 1.9
+
+
+    },
 
 }));
 export default SectionThree

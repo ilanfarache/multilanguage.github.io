@@ -1,9 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import NavMenu from './NavMenu';
-
-import { useState } from 'react';
-
 
 
 const About = ({ lang }) => {
@@ -14,8 +10,15 @@ const About = ({ lang }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-         {/*   <NavMenu />*/}
+
+            <span className={classes.titlePage}>{lang.titlePage}</span>
+
+            <div className={classes.container}>
             <span className={classes.title}>{lang.title}</span>
+
+            <span className={classes.text}>{lang.text}</span>
+                </div>
+
             
          
         </div>
@@ -31,11 +34,32 @@ const useStyles = makeStyles((theme) => ({
         alignItems:'center'
 
     },
-    title: {
+    titlePage: {
 
         color: 'white',
         textTransform: 'uppercase',
-        fontSize:40
+        fontSize: 40,
+        marginBottom:40
+
+    },
+    title: {
+
+        color: 'white',
+        fontSize: 25
+
+    },
+    text: {
+
+        color: 'white',
+        fontSize: 18
+
+    },
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '60%',
+        textAlign:'justify'
 
     }
 

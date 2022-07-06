@@ -16,7 +16,6 @@ const Home = ({ lang }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-        {/*    <NavMenu />*/}
             <SectionOne lang={lang.sectionOne} />
             <SectionTwo lang={lang.sectionTwo}/>
             <SectionThree lang={lang.sectionThree}/>
